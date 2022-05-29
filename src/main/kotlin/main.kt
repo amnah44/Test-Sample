@@ -5,9 +5,10 @@ fun main() {
     println(percentageListOfCharacters(listCharacters))
 }
 
-fun percentageListOfCharacters(listCharacters: List<String>): Double {
-    return if (
-        listCharacters.all { it.lowercase() == "a" || it.lowercase() == "b" } && !listCharacters.isNullOrEmpty()
+fun percentageListOfCharacters(listCharacters: List<String>) =
+    if (
+        listCharacters.all { it.lowercase() == "a" || it.lowercase() == "b" }
+        && !listCharacters.isNullOrEmpty()
     ) {
         val count = listCharacters.count { it == "a" }
         DecimalFormat("#.#")
@@ -16,4 +17,3 @@ fun percentageListOfCharacters(listCharacters: List<String>): Double {
             ).toDouble()
     } else -1.0
 
-}
