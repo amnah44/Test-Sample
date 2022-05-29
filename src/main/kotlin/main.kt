@@ -1,15 +1,19 @@
+import java.text.DecimalFormat
+
 fun main() {
-    val listCharacters = mutableListOf('a','b','b')
+    val listCharacters = listOf("a", "b", "b")
     println(percentageListOfCharacters(listCharacters))
 }
 
-fun percentageListOfCharacters(listCharacters: List<Char>): Any {
-    return if (listCharacters.all { it == 'a' || it == 'b' }) {
-        val count = listCharacters.count { it == 'a' }
-        count * 100 / listCharacters.size
-    } else {
-        -1
-    }
-
+fun percentageListOfCharacters(listCharacters: List<String>): Double {
+    return if (
+        listCharacters.all { it.lowercase() == "a" || it.lowercase() == "b" } && !listCharacters.isNullOrEmpty()
+    ) {
+        val count = listCharacters.count { it == "a" }
+        DecimalFormat("#.#")
+            .format(
+                count * 100 / listCharacters.size.toDouble()
+            ).toDouble()
+    } else -1.0
 
 }
